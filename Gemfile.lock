@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mwpastore/sinja.git
-  revision: ef76d7da816ce829b218f0b9750e0dfc33bbd2b3
+  revision: 7a0ebc7ca364a9cadb497f02278e78b7f4e002ab
   branch: master
   specs:
     sinja (1.2.3)

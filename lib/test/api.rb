@@ -20,8 +20,8 @@ module Test
         end
 
         create do |_attributes|
-          key = Key.new
-          next key
+          key = Key.new(rand(0..9))
+          next [key.id, key]
         end
       end
     end
