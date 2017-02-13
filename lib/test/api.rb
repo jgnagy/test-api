@@ -7,7 +7,7 @@ module Test
     class Service < Sinatra::Base
       register Sinatra::JSONAPI
 
-      resource :keys do
+      resource :testkeys do
         helpers do
           def find(id)
             TestKey.find(id.to_i)
@@ -49,6 +49,10 @@ end
 
 class TestKeySerializer
   include JSONAPI::Serializer
+
+  def type
+    'testkeys'
+  end
 
   attribute :name
   attribute :created_at
