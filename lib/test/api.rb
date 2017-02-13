@@ -10,7 +10,7 @@ module Test
       resource :keys do
         helpers do
           def find(id)
-            Key.find(id.to_i)
+            TestKey.find(id.to_i)
           end
         end
 
@@ -20,7 +20,7 @@ module Test
         end
 
         create do |_attributes|
-          key = Key.new(rand(0..9))
+          key = TestKey.new(rand(0..9))
           next [key.id, key]
         end
       end
@@ -28,7 +28,7 @@ module Test
   end
 end
 
-class Key
+class TestKey
   attr_accessor :name
   attr_reader :created_at
 
@@ -47,7 +47,7 @@ class Key
   end
 end
 
-class KeySerializer
+class TestKeySerializer
   include JSONAPI::Serializer
 
   attribute :name
