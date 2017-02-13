@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'sinatra-contrib', '>= 2.0.0.beta2', '< 3'
   spec.add_runtime_dependency 'json', '~> 2.0'
   spec.add_runtime_dependency 'jsonapi-serializers', '~> 0.16'
-  spec.add_runtime_dependency 'sinja', '~> 1.2'
+  #spec.add_runtime_dependency 'sinja', '~> 1.2'
 end
