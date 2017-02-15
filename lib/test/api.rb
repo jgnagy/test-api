@@ -7,11 +7,21 @@ module Test
     class Service < Sinatra::Base
       register Sinatra::JSONAPI
 
+      namespace '/bar' do
+        get '/baz' do
+          serialize_models [TestKey.find(11), TestKey.find(12)]
+        end
+      end
+
       resource :testkeys do
         helpers do
           def find(id)
-            TestKey.find(id.to_i)
+            TestKey.find(Integer(id)) if id.to_s.match /[0-9]+/
           end
+        end
+
+        get '/foo' do
+          serialize_models [TestKey.find(98), TestKey.find(99)]
         end
 
         show do
@@ -20,7 +30,7 @@ module Test
         end
 
         create do |_attributes|
-          key = TestKey.new(rand(0..9))
+          key = TestKey.new(rand(1..9))
           next [key.id, key]
         end
       end
